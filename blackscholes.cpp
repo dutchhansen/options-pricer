@@ -1,6 +1,5 @@
 #include <iostream>
 #include "blackscholes.h"
-#include <random>
 #include <cmath>
 
 using namespace std;

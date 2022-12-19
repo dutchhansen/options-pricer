@@ -7,7 +7,7 @@ public:
     void calculatePrice();
     void printCalculation() const;
 private:
-    double phi(double x);
+    double phi(double x); // Normal CDF
     double c; // callPrice
     double s; // currStockPrice
     double k; // strikePrice
