@@ -1,5 +1,5 @@
 #include <iostream>
-#include "blackscholes.h"
+#include "option.h"
 
 using namespace std;
 
@@ -8,7 +8,5 @@ int main() {
     cout << "Welcome to options pricer!" << endl;
 
     BlackScholes model;
-    model.getInput();
-    model.calculatePrice();
-    model.printCalculation();
+    model.printCalculations();
 }

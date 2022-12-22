@@ -1,5 +1,0 @@
-# ninja log v5
-0	50	1671415652896492736	build.ninja	f51c0ab2c73ade19
-0	255	1671415653155201551	CMakeFiles/options_pricer.dir/main.cpp.o	7f6750833316d7c3
-1	256	1671415653157152176	CMakeFiles/options_pricer.dir/blackscholes.cpp.o	4ef8e5b79b3f7bf5
-256	293	1671415653195384161	options_pricer	ef798e4dfb3e25ce
