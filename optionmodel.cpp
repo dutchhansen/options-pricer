@@ -6,12 +6,8 @@
 using namespace std;
 
 // contructor for an option
-OptionModel(double stock, double strike, double interest, double time, double sig) {
-    s = stock;
-    k = strike;
-    r = interest;
-    t = time;
-    sigma = sig;
+OptionModel::OptionModel(double s, double k, double r, double t, double sigma)
+: s(s), k(k), r(r), t(t), sigma(sigma) {
 }
 
 double s; // currStockPrice
@@ -30,21 +26,17 @@ void OptionModel::printCalculations() const {
 }
 
 // helper function for Normal CDF
-double OptionModel::phi(double x) {
+double OptionModel::phi(double x) const {
     return 0.5 * erfc(-x * M_SQRT1_2);
 }
 
 // constructor for Black Scholes model
-BlackScholes(double stock, double strike, double interest, double time, double sig) {
-  s = stock;
-  k = strike;
-  r = interest;
-  t = time;
-  sigma = sig;
+BlackScholes::BlackScholes(double s, double k, double r, double t, double sigma)
+: OptionModel(s, k, r, t, sigma) {
 }
 
 // pricing function for Black Scholes model
-double BlackScholes::price() {
+double BlackScholes::price() const {
   // calculate constants
   double d1 = log(s / k) + ((r + (pow(sigma, 2) / 2)) * t);
   d1 = d1 / (sigma * sqrt(t));
@@ -58,18 +50,18 @@ double BlackScholes::price() {
 }
 
 // calculate Delta
-double BlackScholes::delta() {
+double BlackScholes::delta() const {
     return 0.0;
 }
-double BlackScholes::gamma() {
+double BlackScholes::gamma() const {
     return 0.0;
 }
-double BlackScholes::vega() {
+double BlackScholes::vega() const {
     return 0.0;
 }
-double BlackScholes::theta() {
+double BlackScholes::theta() const {
     return 0.0;
 }
-double BlackScholes::rho() {
+double BlackScholes::rho() const {
     return 0.0;
 }
