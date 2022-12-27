@@ -1,5 +1,5 @@
 #include <iostream>
-
+#include <string>
 #include "optionmodel.h"
 
 using namespace std;
@@ -23,23 +23,28 @@ void getUserInput(double& s, double& k, double& r, double& t, double& sigma, str
 
 // collect input from user
 int main() {
-    cout << "**************" << endl;
-    cout << "OPTIONS PRICER. Select option model." << endl;
-    cout << "**************" << endl;
+//    cout << "**************" << endl;
+//    cout << "OPTIONS PRICER. Select option model." << endl;
+//    cout << "**************" << endl;
+//
+//    // get user to select option model for pricing
+//    char selection = 'z';
+//    while (selection != 'A') {
+//      cout << "(A) Black Scholes" << endl;
+//      cin >> selection;
+//    }
+//
+//    // price based on option
+//    if (selection == 'A') {
+//        double s, k, r, t, sigma;
+//        string type;
+//        getUserInput(s, k, r, t, sigma, type);
+//        BlackScholes model(s, k, r, t, sigma, type);
+//        model.printCalculations();
+//    }
 
-    // get user to select option model for pricing
-    char selection = 'z';
-    while (selection != 'A') {
-      cout << "(A) Black Scholes" << endl;
-      cin >> selection;
-    }
-
-    // price based on option
-    if (selection == 'A') {
-        double s, k, r, t, sigma;
-        string type;
-        getUserInput(s, k, r, t, sigma, type);
-        BlackScholes model(s, k, r, t, sigma, type);
-        model.printCalculations();
-    }
+    BlackScholes model(30, 50, 0.03, 1, 0.3, "CALL");
+    int x;
+    cin >> x;
+    cout << model.pdf(x) << endl;
 }

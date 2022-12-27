@@ -27,9 +27,14 @@ void OptionModel::printCalculations() const {
   cout << "Rho: " << setw(5) << rho() << endl;
 }
 
-// helper function for Normal CDF
+// helper function for Standard Normal CDF
 double OptionModel::phi(double x) const {
     return 0.5 * erfc(-x * M_SQRT1_2);
+}
+
+// heler function for Standarf Normal PDF
+double OptionModel::pdf(double x) const {
+  return (M_SQRT1_2 * sqrt(M_1_PI)) * exp(- pow(x, 2) / 2);
 }
 
 // constructor for Black Scholes model
