@@ -3,9 +3,9 @@
 
 class OptionModel {
 public:
-  OptionModel(double s, double k, double r, double t, double sigma);
+  OptionModel(double s, double k, double r, double t, double sigma, std::string type);
   void printCalculations() const; // print all metrics
-  virtual double price() const = 0; // calculate price from parameters
+  virtual double callPrice() const = 0; // calculate price from parameters
   virtual double delta() const = 0;
   virtual double gamma() const = 0;
   virtual double vega() const = 0;
@@ -18,12 +18,13 @@ protected:
   double r; // risk-free interest
   double t; // time to maturity (years)
   double sigma; // volatility
+  std::string type; // call or put
 };
 
 class BlackScholes : public OptionModel {
 public:
-  BlackScholes(double s, double k, double r, double t, double sigma);
-  double price() const; // calculate price from parameters
+  BlackScholes(double s, double k, double r, double t, double sigma, std::string type);
+  double callPrice() const; // calculate price from parameters
   double delta() const;
   double gamma() const;
   double vega() const;
