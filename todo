@@ -1,2 +1,5 @@
 - write all greeks for black scholes option pricer
 - write options pricer for Monte-Carlo/Binomial, etc...
+
+- change vega so that /100 values - not sure to what
+magnitude vega is typically used as a metric

@@ -19,6 +19,7 @@ double sigma; // volatility
 string type; // call or put
 
 void OptionModel::printCalculations() const {
+  cout << endl;
   cout << "Theoretical Premium for " << type << " Option: $ " << setw(5) << callPrice() << endl;
   cout << "Delta: " << setw(5) << delta() << endl;
   cout << "Gamma: " << setw(5) << gamma() << endl;
@@ -45,8 +46,10 @@ BlackScholes::BlackScholes(double s, double k, double r, double t, double sigma,
 // pricing function for Black Scholes model
 double BlackScholes::callPrice() const {
   // calculate constants
+  // d1
   double d1 = log(s / k) + ((r + (pow(sigma, 2) / 2)) * t);
   d1 = d1 / (sigma * sqrt(t));
+  // d2
   double d2 = d1 - (sigma * sqrt(t));
 
   // calculate price
@@ -60,15 +63,33 @@ double BlackScholes::callPrice() const {
 double BlackScholes::delta() const {
     return 0.0;
 }
+
 double BlackScholes::gamma() const {
-    return 0.0;
+    // calculate constants
+    // d1
+    double d1 = log(s / k) + ((r + (pow(sigma, 2) / 2)) * t);
+    d1 = d1 / (sigma * sqrt(t));
+
+    // calculate Gamma
+    double gamma = pdf(d1) / (s * sigma * sqrt(t));
+    return gamma;
 }
+
 double BlackScholes::vega() const {
-    return 0.0;
+    // calculate constants
+    // d1
+    double d1 = log(s / k) + ((r + (pow(sigma, 2) / 2)) * t);
+    d1 = d1 / (sigma * sqrt(t));
+
+    // calculate Vega
+    double vega = s * pdf(d1) * sqrt(t);
+    return vega;  // FIXME: off by a factor of 10
 }
+
 double BlackScholes::theta() const {
     return 0.0;
 }
+
 double BlackScholes::rho() const {
     return 0.0;
 }

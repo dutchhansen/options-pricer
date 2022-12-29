@@ -19,6 +19,10 @@ void getUserInput(double& s, double& k, double& r, double& t, double& sigma, str
   cin >> sigma;
   cout << "Option type (CALL/PUT): " << endl;
   cin >> type;
+  while (type != "CALL" && type != "PUT") {
+    cout << "Enter a valid option type: " << endl;
+    cin >> type;
+  }
 }
 
 // collect input from user
@@ -36,15 +40,15 @@ int main() {
 //
 //    // price based on option
 //    if (selection == 'A') {
-//        double s, k, r, t, sigma;
-//        string type;
-//        getUserInput(s, k, r, t, sigma, type);
+        double s, k, r, t, sigma;
+        string type;
+        getUserInput(s, k, r, t, sigma, type);
 //        BlackScholes model(s, k, r, t, sigma, type);
 //        model.printCalculations();
 //    }
 
-        string type = "CALL";
-        BlackScholes model(100, 100, 0.05, 0.08219, 0.25, type);
+//        string type = "CALL";
+        BlackScholes model(30.0, 50.0, 0.03, 0.6849, 0.30, type);
         model.printCalculations();
 
 //    BlackScholes model(30, 50, 0.03, 1, 0.3, "CALL");
