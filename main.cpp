@@ -7,27 +7,27 @@ using namespace std;
 // get input from getUserInput
 void getUserInput(double& s, double& k, double& r, double& t, double& sigma, string& type) {
   cout << "Input option parameters:" << endl;
-  cout << "Underlying Asset Price: " << endl;
+  cout << "Underlying Asset Price (USD): " << endl;
   cin >> s;
-  cout << "Strike Price: " << endl;
+  cout << "Strike Price (USD): " << endl;
   cin >> k;
-  cout << "Risk-Free Interest Rate: " << endl;
+  cout << "Risk-Free Interest Rate (decimal): " << endl;
   cin >> r;
   cout << "Time to maturity (years): " << endl;
   cin >> t;
-  cout << "Volatility: " << endl;
+  cout << "Volatility (decimal): " << endl;
   cin >> sigma;
-  cout << "Option type: " << endl;
+  cout << "Option type (CALL/PUT): " << endl;
   cin >> type;
 }
 
 // collect input from user
 int main() {
-//    cout << "**************" << endl;
-//    cout << "OPTIONS PRICER. Select option model." << endl;
-//    cout << "**************" << endl;
-//
-//    // get user to select option model for pricing
+    cout << "**************" << endl;
+    cout << "OPTIONS PRICER. Select option model." << endl;
+    cout << "**************" << endl;
+
+    // get user to select option model for pricing
 //    char selection = 'z';
 //    while (selection != 'A') {
 //      cout << "(A) Black Scholes" << endl;
@@ -43,8 +43,12 @@ int main() {
 //        model.printCalculations();
 //    }
 
-    BlackScholes model(30, 50, 0.03, 1, 0.3, "CALL");
-    int x;
-    cin >> x;
-    cout << model.pdf(x) << endl;
+        string type = "CALL";
+        BlackScholes model(100, 100, 0.05, 0.08219, 0.25, type);
+        model.printCalculations();
+
+//    BlackScholes model(30, 50, 0.03, 1, 0.3, "CALL");
+//    int x;
+//    cin >> x;
+//    cout << model.pdf(x) << endl;
 }
