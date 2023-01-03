@@ -1,5 +1,5 @@
 # Black-Scholes Automization
-This is a calculator for common option prices and metrics using Black-Scholes model.
+Calculator for option pricing and common metrics using Black-Scholes model.
 Input the following:
 - `Underlying Asset Price (USD)`
 - `Strike Price (USD)`
@@ -16,4 +16,4 @@ main.cpp will output the following:
 - `Theta`
 - `Rho`
 
-Class hierarchy allows for further inheritance (other ways for modeling options)
+Class hierarchy allows for further inheritance (other ways of mathematical models)
