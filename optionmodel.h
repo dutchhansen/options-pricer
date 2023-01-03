@@ -1,6 +1,6 @@
 #ifndef OPTIONMODEL_H
 #define OPTIONMODEL_H
-# include <string>
+#include <string>
 
 class OptionModel {
 public:
