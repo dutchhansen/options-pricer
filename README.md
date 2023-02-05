@@ -1,4 +1,4 @@
-# Black-Scholes Automization
+# Black-Scholes Automation
 Calculator for option pricing and common metrics using Black-Scholes model.
 Input the following:
 - `Underlying Asset Price (USD)`
